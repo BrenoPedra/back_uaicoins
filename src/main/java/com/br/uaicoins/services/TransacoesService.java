@@ -30,7 +30,7 @@ public class TransacoesService {
 	private CarteirasRepository carteirasRepository;
 
 	public List<TransacaoResponse> listarTransacoes() {
-		List<Transacao> transacoes = (List<Transacao>) transacoesRepository.findAllByOrderByDataTransacaoDesc();
+		List<Transacao> transacoes = transacoesRepository.findAllByOrderByDataTransacaoDesc();
 		return transacoes.stream()
 				.map(t -> new TransacaoResponse(t))
 				.collect(Collectors.toList());
